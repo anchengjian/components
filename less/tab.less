@@ -1,0 +1,122 @@
+// reset
+*{
+  box-sizing: border-box;
+}
+
+// common
+.container{
+  width: 100%;
+  margin: 50px auto;
+}
+
+// nav-tabs
+.nav-tabs{
+  border-bottom: 1px solid #ddd;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  margin-top: 20px;
+
+  >li{
+    margin-bottom: -1px;
+    position: relative;
+    display: inline-block;
+
+    >a{
+      line-height: 1.42857143;
+      border: 1px solid transparent;
+      border-radius: 4px 4px 0 0;
+      position: relative;
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #3798e7;
+      transition: all 0.3s ease;
+
+      &:focus,&:hover{
+        background-color: #eee;
+        border-color: #eee #eee #ddd;
+        transition: all 0.3s ease;
+      }
+    }
+
+    &.active{
+      >a,>a:focus,>a:hover{
+        color: #333;
+        cursor: default;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-bottom-color: transparent;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
+
+.tab-content .active{
+  display: block;
+}
+
+// tab-pane
+.tab-pane{
+  display: none;
+  animation: opacity021 1.2s ease;
+}
+
+/*opacity从0到1*/
+@keyframes opacity021 {
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+// 纯css的tab
+.css-tab{
+  list-style: none;
+  padding-left: 0;
+  position: relative;
+  border-bottom: 1px solid #d5d5d5;
+  margin-top: 20px;
+  >.item{
+    display: inline-block;
+    >.tab-indicators{
+      line-height: 1.42857143;
+      border: 1px solid transparent;
+      border-radius: 4px 4px 0 0;
+      position: relative;
+      display: inline-block;
+      z-index: 2;
+      margin-bottom: -1px;
+      text-decoration: none;
+      padding: 10px 15px;
+      color: #3798e7;
+      transition: all 0.3s ease;
+      &:hover{
+        background-color: #eee;
+        border-color: #eee #eee #ddd;
+        transition: all 0.3s ease;
+      }
+    }
+    >.css-tab-content{
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 66px;
+      display: none;
+    }
+    &:target{
+       >.tab-indicators{
+        color: #333;
+        cursor: default;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-bottom-color: transparent;
+        transition: all 0.3s ease;
+      }
+      >.css-tab-content{
+        display: block;
+        z-index: 3;
+         animation: opacity021 1.2s ease;
+      }
+    }
+  }
+}
