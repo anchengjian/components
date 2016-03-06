@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+.container {
+  width: 100%;
+  margin: 50px auto;
+}
+.num-roll > .num {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+  width: 1rem;
+  height: 2rem;
+  overflow: hidden;
+}
+.num-roll > .num > .box {
+  position: relative;
+  top: 0;
+}
+.num-roll > .num > .box > span {
+  display: block;
+  width: 1rem;
+  height: 2rem;
+  line-height: 2rem;
+}
+.num-roll > .num:nth-of-type(1) > .box {
+  -webkit-transition: top 0.6s ease-in-out;
+          transition: top 0.6s ease-in-out;
+}
+.num-roll > .num:nth-of-type(2) > .box {
+  -webkit-transition: top 0.6s 0.3s ease-in-out;
+          transition: top 0.6s 0.3s ease-in-out;
+}
+.num-roll > .num:nth-of-type(3) > .box {
+  -webkit-transition: top 0.6s 0.6s ease-in-out;
+          transition: top 0.6s 0.6s ease-in-out;
+}
+.num-roll > .num:nth-of-type(4) > .box {
+  -webkit-transition: top 0.6s 0.9s ease-in-out;
+          transition: top 0.6s 0.9s ease-in-out;
+}
+.num-roll > .num:nth-of-type(5) > .box {
+  -webkit-transition: top 0.6s 1.2s ease-in-out;
+          transition: top 0.6s 1.2s ease-in-out;
+}
+.num-roll > .num:nth-of-type(6) > .box {
+  -webkit-transition: top 0.6s 1.5s ease-in-out;
+          transition: top 0.6s 1.5s ease-in-out;
+}
+.num-roll > .num:nth-of-type(7) > .box {
+  -webkit-transition: top 0.6s 1.6s ease-in-out;
+          transition: top 0.6s 1.6s ease-in-out;
+}
+.num-roll > .num:nth-of-type(8) > .box {
+  -webkit-transition: top 0.6s 1.9s ease-in-out;
+          transition: top 0.6s 1.9s ease-in-out;
+}
