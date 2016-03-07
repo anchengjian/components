@@ -1,4 +1,4 @@
-# common-components
+# components
 我自己写的一些常用的组件，存放于这里，方便查找。
 
 ## 一点思考
@@ -15,8 +15,9 @@ q:为什么不用bootstrap等等封装好的东西？<br>
 只兼容到IE9+，并且没有加各种css兼容前缀。<br>
 需要用的时候直接用`autoprefixer`跑一下兼容到指定版本就行<br>
 <br>
-1,第一次提交了一个tab切换组件  -->  tab.html <br>
-2,第二次提交了一个数字滚动特效  -->  numRoll.html <br>
+1,第一次提交了一个tab切换组件  -->  tab <br>
+2,第二次提交了一个数字滚动特效  -->  num-roll <br>
+2,第三次提交了一个jQuery的扩展  -->  jQuery-extend/ajax-loading.js <br>
 
 ### 2016年3月7日更：
 开始整理一些东西，发现之前的一些代码写的好低级。。先提交上来好了
