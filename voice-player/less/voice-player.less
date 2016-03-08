@@ -1,0 +1,145 @@
+.voice-player{
+  *{
+    box-sizing: border-box;
+    vertical-align: middle;
+    &:after,&:before {
+      box-sizing: content-box;
+    }
+  }
+  border: 1px solid #ebebeb;
+  background-color: #fcfcfc;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 12px 20px 12px 12px;
+  position: relative;
+  cursor: pointer;
+  >.audio-play{
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    margin-left: -10px;
+    position: relative;
+    overflow: hidden;
+    font-size: 12px;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+
+    >.horn{
+      display: block;
+      width: 30px;
+      height: 30px;
+      position: relative;
+      z-index: 1;
+      left: 19px;
+      top: 19px;
+      border-radius: 50%;
+      background-color: #0dbb00;
+      
+      &.animation{
+        animation: hronZoom 1s infinite;
+      }
+
+      &:before{
+        content: "";
+        display: block;
+        position: absolute;
+        top: -.4em;
+        left: -.4em;
+        width: .8em;
+        height: .8em;
+        border: .4em solid #fcfcfc;
+        border-radius: 50%;
+      }
+      &:after{
+        content: "";
+        display: block;
+        position: absolute;
+        top: -1.1em;
+        left: -1.1em;
+        width: 2.2em;
+        height: 2.2em;
+        border: .4em solid #fff;
+        border-radius: 50%;
+      }
+    }
+
+    &:before,&:after{
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 3;
+      width: 100%;
+      height: 50%;
+      background-color: #fcfcfc;
+      transform-origin: 1.8em 1.8em;
+      transform: rotate(0deg);
+    }
+    &:after{
+      transform-origin: 2em 0em;
+      transform: rotate(90deg);
+    }
+
+  }
+  @keyframes hronZoom {
+    0%   {width: 0;height: 0;}
+    100% {width: 30px;height: 30px;}
+  }
+  >.audio-body{
+    display: inline-block;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.43;
+    margin: 0 0 0 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    max-width: 79%;
+    >.sub-title{
+      display: block;
+      color: #8c8c8c;
+    }
+  }
+  >.audio_length{
+    display: inline-block;
+    position: absolute;
+    right: 30px;
+    font-size: 14px;
+    color: #8c8c8c;
+  }
+  >.audio-play-progress{
+    display: block;
+    position: absolute;
+    transition: all .5s linear;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: red;
+    width: 0%;
+    transition: width 1s linear;
+    &:after{
+      content: " ";
+      display: block;
+      height: 2px;
+      position: absolute;
+      width: 30px;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      opacity: .45;
+      box-shadow: #29d 1px 0 6px 1px;
+      border-radius: 100%;
+    }
+    &.hide{
+      opacity: 0;
+      z-index: 0;
+      visibility: hidden;
+    }
+    &.in{
+      z-index: 9999;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
