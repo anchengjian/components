@@ -138,9 +138,10 @@ var voicePlayer=(function(doc,win){
     clearInterval(this.timer);
     this.isPlay=false;
     this.rate=0;
-    this.progress('0');
     this.music.pause();
+    this.music.currentTime = 0;
     this.horn.classList.remove('animation');
+    this.progress('0');
   };
 
   player.prototype.switch=function(opt){
