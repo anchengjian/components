@@ -90,6 +90,7 @@ var voicePlayer=(function(doc,win){
 
     // 重置
     this.music.pause();
+    this.music.currentTime=0;
     this.rate=0;
 
     // 填入参数
@@ -106,17 +107,27 @@ var voicePlayer=(function(doc,win){
 
   player.prototype.start=function(){
 
-    this.horn.classList.add('animation');
     this.music.play();
 
-    // 渐变显示
-    setTimeout(function(){
-      this.loadingBar.classList.add('in');
-    }.bind(this),250);
-    this.timer=setInterval(function(){
+    this.music.addEventListener('canplay',function playStart(event){
+      this.rate=this.cur;
       this.progress(this.rate+'%');
+      this.music.removeEventListener('canplay',playStart);
+    }.bind(this));
+
+    if(this.rate>=100){
+      this.rate=0;
+      this.progress('0');
+    }
+
+    // 渐变显示
+    this.loadingBar.classList.add('in');
+    this.horn.classList.add('animation');
+
+    this.timer=setInterval(function(){
       this.rate+=this.cur;
-      if(this.rate>=100) this.stop();
+      this.progress(this.rate+'%');
+      if(this.rate>=100) this.complete();
     }.bind(this),1000);
   };
 
@@ -129,7 +140,7 @@ var voicePlayer=(function(doc,win){
   player.prototype.complete=function(){
     // 一跑到底
     this.progress('100%');
-    this.stop.call(this);
+    this.stop();
   };
 
   // 全部停止
@@ -137,18 +148,14 @@ var voicePlayer=(function(doc,win){
     // 一跑到底
     clearInterval(this.timer);
     this.isPlay=false;
-    this.rate=0;
-    this.music.pause();
-    this.music.currentTime = 0;
     this.horn.classList.remove('animation');
-    this.progress('0');
   };
 
   player.prototype.switch=function(opt){
     if(!!opt && !opt.src) return;
     this.opt=opt;
-    this.stop.call(this);
-    this.loadMusic.call(this);
+    this.stop();
+    this.loadMusic();
   };
 
   return player;
