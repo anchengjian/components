@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta content="always" name="referrer">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>图片放大镜</title>
+    <meta name="description" content="pic-magnifying,图片放大镜">
+    <meta name="keywords" content="pic-magnifying,图片放大镜">
+    <link rel="stylesheet" href="./css/pic-magnifying.css">
+  </head>
+  <body>
+
+    <pre>
+      <code>
+
+        // 只需要给需要预览的图片加上这个class就行
+        // .pic-magnifying
+
+        // 已经在运行的完整的启动代码
+        document.addEventListener('DOMContentLoaded', function(){
+          var allPics=document.querySelectorAll('.preview');
+          Array.prototype.map.call(allPics,function(ele,i){
+            var src=ele.getAttribute('data-original')
+            if( (!!src && src!='/upload/') || (ele.src && ele.src!='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC') ){
+              new picMagnifying({
+                target: ele,
+                isShowAll:true
+              });
+            }
+          });
+        });
+
+        // 单独启动某一个
+        new picMagnifying({
+              target: document.querySelector('#img-id'),  // 获取图片
+              isShowAll: false    // 局部放大还是一次性放大全部
+            });
+      </code>
+    </pre>
+
+    <div class="box">
+      <img src="./imgs/preview.jpg" class="preview pic-magnifying" />
+    </div>
+
+    <div class="box">
+      <img src="./imgs/preview.jpg" class="preview pic-magnifying" />
+    </div>
+
+    <div class="box">
+      <img src="./imgs/preview.jpg" class="preview pic-magnifying" />
+    </div>
+
+    <script type="text/javascript" src="./js/pic-magnifying.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        var allPics=document.querySelectorAll('.preview');
+        Array.prototype.map.call(allPics,function(ele,i){
+          var src=ele.getAttribute('data-original')
+          if( (!!src && src!='/upload/') || (ele.src && ele.src!='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC') ){
+            new picMagnifying({
+              target: ele,
+              isShowAll:true
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
