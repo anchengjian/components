@@ -20,6 +20,7 @@
 3、jQuery的AJAX扩展  -->  jQuery-extend/ajax-loading.js <br>
 4、仿微信音乐播放的组件  -->  voice-player <br>
 5、图片放大镜的组件  -->  pic-magnifying <br>
+6、加载条动画（voice-player里已用过，再抽离出来）  -->  lading-bar <br>
 
 ### 2016年3月7日更：
 开始整理一些东西，发现之前的一些代码写的好低级。。先提交上来好了
