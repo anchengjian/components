@@ -7,15 +7,12 @@ var cookies=(function (){
   return function (name,value,days){
     if(!name) return;
     if(!!value || value === 0){        // 如果有值执行设置操作
-      days = typeof days == 'number' ? days : 30;
+      days = toString.call(days) === '[object Number]' ? days : 30;
       var exdate=new Date();
       exdate.setTime(exdate.getTime() + days * 24 * 60 * 60 * 1000);
-      if(days === 0){
-        document.cookie = name + '=' + escape(value);
-      }else{
-        document.cookie = name + '=' + escape(value) + ';expires=' + exdate.toGMTString();
-      }
-      return ;
+      
+      if(days === 0) return document.cookie = name + '=' + escape(value);
+      return document.cookie = name + '=' + escape(value) + ';expires=' + exdate.toGMTString();
     }else{        // 否则执行获取操作
       var reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)'),
           arr = document.cookie.match(reg);
